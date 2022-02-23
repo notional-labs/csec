@@ -9,6 +9,12 @@ Inspects source code for security problems by scanning the Go AST.
 
 <img src="https://securego.io/img/gosec.png" width="320">
 
+## Install
+
+```bash
+go install github.com/notional-labs/csec@master
+```
+
 ## License
 
 Licensed under the Apache License, Version 2.0 (the "License").
@@ -18,32 +24,31 @@ You may obtain a copy of the License [here](http://www.apache.org/licenses/LICEN
 ## Project status
 
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3218/badge)](https://bestpractices.coreinfrastructure.org/projects/3218)
-[![Build Status](https://github.com/informalsystems/gosec/workflows/CI/badge.svg)](https://github.com/informalsystems/gosec/actions?query=workflows%3ACI)
-[![Coverage Status](https://codecov.io/gh/informalsystems/gosec/branch/master/graph/badge.svg)](https://codecov.io/gh/informalsystems/gosec)
-[![GoReport](https://goreportcard.com/badge/github.com/informalsystems/gosec)](https://goreportcard.com/badge/github.com/informalsystems/gosec)
-[![GoDoc](https://godoc.org/github.com/informalsystems/gosec?status.svg)](https://godoc.org/github.com/informalsystems/gosec)
+[![Build Status](https://github.com/notional-labs/csec/workflows/CI/badge.svg)](https://github.com/notional-labs/csec/actions?query=workflows%3ACI)
+[![Coverage Status](https://codecov.io/gh/notional-labs/csec/branch/master/graph/badge.svg)](https://codecov.io/gh/notional-labs/csec)
+[![GoReport](https://goreportcard.com/badge/github.com/notional-labs/csec)](https://goreportcard.com/badge/github.com/notional-labs/csec)
+[![GoDoc](https://godoc.org/github.com/notional-labs/csec?status.svg)](https://godoc.org/github.com/notional-labs/csec)
 [![Docs](https://readthedocs.org/projects/docs/badge/?version=latest)](https://securego.io/)
-[![Downloads](https://img.shields.io/github/downloads/informalsystems/gosec/total.svg)](https://github.com/informalsystems/gosec/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/informalsystems/gosec.svg)](https://hub.docker.com/r/informalsystems/gosec/tags)
+[![Downloads](https://img.shields.io/github/downloads/notional-labs/csec/total.svg)](https://github.com/notional-labs/csec/releases)
+[![Docker Pulls](https://img.shields.io/docker/pulls/notional-labs/csec.svg)](https://hub.docker.com/r/notional-labs/csec/tags)
 [![Slack](http://securego.herokuapp.com/badge.svg)](http://securego.herokuapp.com)
 
-## Install
 
 ### CI Installation
 
 ```bash
 # binary will be $(go env GOPATH)/bin/gosec
-curl -sfL https://raw.githubusercontent.com/informalsystems/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin vX.Y.Z
+curl -sfL https://raw.githubusercontent.com/notional-labs/csec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin vX.Y.Z
 
 # or install it into ./bin/
-curl -sfL https://raw.githubusercontent.com/informalsystems/gosec/master/install.sh | sh -s vX.Y.Z
+curl -sfL https://raw.githubusercontent.com/notional-labs/csec/master/install.sh | sh -s vX.Y.Z
 
 # In alpine linux (as it does not come with curl by default)
-wget -O - -q https://raw.githubusercontent.com/informalsystems/gosec/master/install.sh | sh -s vX.Y.Z
+wget -O - -q https://raw.githubusercontent.com/notional-labs/csec/master/install.sh | sh -s vX.Y.Z
 
 # If you want to use the checksums provided on the "Releases" page
 # then you will have to download a tar.gz file for your operating system instead of a binary file
-wget https://github.com/informalsystems/gosec/releases/download/vX.Y.Z/gosec_vX.Y.Z_OS.tar.gz
+wget https://github.com/notional-labs/csec/releases/download/vX.Y.Z/gosec_vX.Y.Z_OS.tar.gz
 
 # The file will be in the current folder where you run the command
 # and you can check the checksum like this
@@ -73,7 +78,7 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v2
       - name: Run Gosec Security Scanner
-        uses: informalsystems/gosec@master
+        uses: notional-labs/csec@master
         with:
           args: ./...
 ```
@@ -81,7 +86,7 @@ jobs:
 ### Local Installation
 
 ```bash
-go get github.com/informalsystems/gosec/v2/cmd/gosec
+go get github.com/notional-labs/csec/v2/cmd/gosec
 ```
 
 ## Usage
@@ -143,7 +148,7 @@ $ gosec -exclude=G303 ./...
 ```
 ### CWE Mapping
 
-Every issue detected by `gosec` is mapped to a [CWE (Common Weakness Enumeration)](http://cwe.mitre.org/data/index.html) which describes in more generic terms the vulnerability. The exact mapping can be found  [here](https://github.com/informalsystems/gosec/blob/master/issue.go#L49).
+Every issue detected by `gosec` is mapped to a [CWE (Common Weakness Enumeration)](http://cwe.mitre.org/data/index.html) which describes in more generic terms the vulnerability. The exact mapping can be found  [here](https://github.com/notional-labs/csec/blob/master/issue.go#L49).
 
 ### Configuration
 
@@ -308,7 +313,7 @@ You can run the `gosec` tool in a container against your local Go project. You o
 into a volume as follows:
 
 ```bash
-docker run --rm -it -w /<PROJECT>/ -v <YOUR PROJECT PATH>/<PROJECT>:/<PROJECT> informalsystems/gosec /<PROJECT>/...
+docker run --rm -it -w /<PROJECT>/ -v <YOUR PROJECT PATH>/<PROJECT>:/<PROJECT> notional-labs/csec /<PROJECT>/...
 ```
 **Note:** the current working directory needs to be set with `-w` option in order to get successfully resolved the dependencies from go module file 
 
@@ -319,7 +324,7 @@ The configuration of TLS rule can be generated from [Mozilla's TLS ciphers recom
 First you need to install the generator tool:
 
 ```bash
-go get github.com/informalsystems/gosec/v2/cmd/tlsconfig/...
+go get github.com/notional-labs/csec/v2/cmd/tlsconfig/...
 ```
 
 You can invoke now the `go generate` in the root of the project:
