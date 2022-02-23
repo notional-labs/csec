@@ -3,7 +3,7 @@ package testutils
 import (
 	"go/ast"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 // MockVisitor is useful for stubbing out ast.Visitor with callback

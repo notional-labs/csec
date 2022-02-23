@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 // handle ranges

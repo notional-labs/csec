@@ -4,7 +4,7 @@ import (
 	"go/ast"
 	"go/types"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 type archive struct {

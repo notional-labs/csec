@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 // originally copied and simplified from the rules/integer_overflow.go

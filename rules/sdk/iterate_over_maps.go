@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"go/ast"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 // This pass enforces ONLY key retrieval from maps. It resolves a problem that was

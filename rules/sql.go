@@ -19,7 +19,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/securego/gosec/v2"
+	"github.com/notional-labs/csec"
 )
 
 type sqlStatement struct {

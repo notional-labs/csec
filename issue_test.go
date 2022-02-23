@@ -5,9 +5,9 @@ import (
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/rules"
-	"github.com/securego/gosec/v2/testutils"
+	"github.com/notional-labs/csec"
+	"github.com/notional-labs/csec/rules"
+	"github.com/notional-labs/csec/testutils"
 )
 
 var _ = Describe("Issue", func() {
